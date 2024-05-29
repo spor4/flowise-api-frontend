@@ -22,7 +22,8 @@ form.addEventListener("submit", async (e) => {
 
     const data = await res.json();
 
-    responseEl.innerHTML = data.message;
+    // Assuming data.message is an object, we can display it as JSON string
+    responseEl.innerHTML = data.message.text;;
   } catch (error) {
     responseEl.innerHTML = error.message;
   } finally {
