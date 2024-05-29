@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
-import * as dotevn from "dotenv";
-dotevn.config();
+import * as dotenv from "dotenv";
+dotenv.config();
 
 // Controllers
 import { createPrediction } from "./controllers/flowise.js";
@@ -13,7 +13,7 @@ app.use(express.static("public"));
 
 // Use body-parser middleware to parse incoming request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '10mb' })); // Increase the limit for JSON payloads
 
 app.post("/api/flowise", createPrediction);
 
