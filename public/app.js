@@ -1,14 +1,10 @@
 const form = document.querySelector("form");
-const messageInput = document.getElementById("message");
 const fileInput = document.getElementById("file-input");
 const responseEl = document.getElementById("response");
 const messageBtn = document.getElementById("message-btn");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-
-  const messageValue = messageInput.value;
-  console.log("Message input value:", messageValue);
 
   messageBtn.disabled = true;
   messageBtn.innerHTML = "Sending...";
@@ -29,7 +25,6 @@ form.addEventListener("submit", async (e) => {
     console.log("Base64 string:", base64String);
 
     const data = {
-      question: messageValue,
       uploads: [
         {
           data: base64String,
@@ -60,7 +55,6 @@ form.addEventListener("submit", async (e) => {
     } finally {
       messageBtn.disabled = false;
       messageBtn.innerHTML = "Send";
-      messageInput.value = "";
       fileInput.value = "";
     }
   };

@@ -1,15 +1,14 @@
 export const createPrediction = async (req, res) => {
-  const { question, uploads } = req.body;
-  console.log("Received question:", question);
+  const { uploads } = req.body;
   console.log("Received uploads:", uploads);
 
   try {
-    if (!question || !uploads) {
-      throw new Error("Invalid input: 'question' or 'uploads' is missing.");
+    if (!uploads) {
+      throw new Error("Invalid input: 'uploads' is missing.");
     }
 
     const flowiseData = {
-      question: question,
+      question: "", // Placeholder or remove if the API can handle requests without it
       uploads: uploads,
     };
 
@@ -26,7 +25,6 @@ export const createPrediction = async (req, res) => {
     const data = await response.json();
     console.log("Flowise API response:", data);
 
-    // Update the condition to check if data contains the expected 'text' property
     if (!data || !data.text) {
       throw new Error("Error from Flowise API: " + (data.message || "Unknown error"));
     }
