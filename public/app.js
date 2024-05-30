@@ -7,7 +7,7 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   messageBtn.disabled = true;
-  messageBtn.innerHTML = "Sending...";
+  messageBtn.innerHTML = "Wird übersetzt...";
 
   const file = fileInput.files[0];
 
