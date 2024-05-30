@@ -14,7 +14,7 @@ form.addEventListener("submit", async (e) => {
   if (!file) {
     responseEl.innerHTML = "Please select a file.";
     messageBtn.disabled = false;
-    messageBtn.innerHTML = "Send";
+    messageBtn.innerHTML = "send";
     return;
   }
 
@@ -54,7 +54,7 @@ form.addEventListener("submit", async (e) => {
       responseEl.innerHTML = error.message;
     } finally {
       messageBtn.disabled = false;
-      messageBtn.innerHTML = "Send";
+      messageBtn.innerHTML = "send";
       fileInput.value = "";
     }
   };
